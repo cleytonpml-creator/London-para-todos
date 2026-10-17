@@ -1,0 +1,6 @@
+{
+  "name": "London para Todos - Gestão de Frota",
+  "description": "Sistema completo de gestão de frota, clientes, veículos e controle de alertas de vencimento (MOT, Road Tax, Seguro e Aluguel) com exportação Excel.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
