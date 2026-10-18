@@ -1,0 +1,9 @@
+{
+  "appId": "com.london.frota",
+  "appName": "London para Todos",
+  "webDir": "dist",
+  "bundledWebRuntime": false,
+  "server": {
+    "androidScheme": "https"
+  }
+}
