@@ -11,21 +11,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 1. Baixar o Código
+      - name: 1. Baixar o Codigo
         uses: actions/checkout@v4
 
       - name: 2. Configurar Node.js 20
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
 
-      - name: 3. Instalar Dependências e Capacitor
+      - name: 3. Instalar Dependencias
         run: |
-          npm install
+          npm install --legacy-peer-deps
           npm install @capacitor/core @capacitor/cli @capacitor/android --save
 
-      - name: 4. Compilar React
+      - name: 4. Compilar React (Vite)
         run: npm run build
 
       - name: 5. Configurar Java 17
@@ -37,7 +36,7 @@ jobs:
       - name: 6. Configurar Android SDK
         uses: android-actions/setup-android@v3
 
-      - name: 7. Inicializar Capacitor Android
+      - name: 7. Adicionar e Sincronizar Capacitor Android
         run: |
           npx cap add android || true
           npx cap sync android
@@ -48,7 +47,7 @@ jobs:
           chmod +x gradlew
           ./gradlew assembleDebug --no-daemon
 
-      - name: 9. Salvar APK
+      - name: 9. Salvar APK para Download
         uses: actions/upload-artifact@v4
         with:
           name: London-Frota-Debug-APK
